@@ -1,0 +1,57 @@
+/* ===================== PAGE LOADER ===================== */
+.loading {
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    display: none; /* hidden by default */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+    /* Spinner circle */
+    .loading::before {
+        content: "";
+        width: 60px;
+        height: 60px;
+        border: 6px solid #f3f3f3;
+        border-top: 6px solid #0d6efd; /* Bootstrap blue spinner */
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    /* Loading text below spinner */
+    .loading::after {
+        content: "Loading...";
+        display: block;
+        position: absolute;
+        top: 58%;
+        font-size: 18px;
+        color: #0d6efd;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+/* Spinner rotation animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Optional: fade-in smooth effect when loader appears */
+.loading.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
